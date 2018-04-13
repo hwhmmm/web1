@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style type="text/css">
+        div {width:150px;height: 150px;padding: 10px;border: 1px solid #000;}
+    </style>
+    <script>
+        window.addEventListener('load', setup, false);
+        function setup(){
+            var myimg = document.getElementById('myimg');
+            myimg.addEventListener('dragstart', mydragstart, false);
+            var catcher = document.getElementById('mydiv');
+            catcher.addEventListener('dragover', mydragover, false);
+            catcher.addEventListener('drop', mydrop, false);
+            // catcher.addEventListener('dragenter', function(evt){
+            //     this.style.border = '3px double blue';
+            // }, false);
+            // catcher.addEventListener('dragleave', function(evt){
+            //     this.style.border = '1px solid #000';
+            // }, false);
+        }
+        function mydragstart(evt){
+            this.style.border = '1px solid red';
+            evt.dataTransfer.setData('text', this.id); //움직이는 객체에 data를 저장
+        }
+        function mydragover(evt){
+            evt.preventDefault();
+        }
+        function mydrop(evt){
+            evt.preventDefault();
+            var newId = evt.dataTransfer.getData('text');
+            var elem = document.getElementById(newId);//img
+            elem.parentNode.removeChild(elem);
+            this.appendChild(elem);
+            elem.style.border = '0';
+        }
+    </script>
+</head>
+<body>
+    <!-- <h1 draggable="true">hello, world</h1> -->
+    <!-- <img src="img/seojun1.jpg" width="450" height="300" alt="" /> -->
+
+    <div id="mydiv">drag here...</div>
+    <img id="myimg" src="img/check.png" alt="" width="100" height="100" draggable="true" />
+
+    <script>
+        // var obj = {name:'김철수', age:24};
+        // document.write('address' in obj);
+        // var flag = 'draggable' in document.createElement('table');
+        // document.write(flag);
+    </script>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    
+
+</head>
+<body>
+    <div>Hello, World</div>
+    <script>
+        //var myName = 'Wonhong';
+        var myName = new String('wonhong');
+        //var myName = String('wonhong');
+        // console.log(typeof myName);
+        // console.log(typeof myName.valueOf()); //객체를 기본형으로 바꿀 때
+
+        //console.log('이름의 길이는 ' + myName.length + '자리입니다.');
+        //document.write('이름의 길이는 ' + myName.length + '자리입니다.');
+        // var mydiv = document.getElementsByTagName('div')[0]
+        // mydiv.style.backgroundColor = 'yellow';
+
+        // var Student = function(){}
+        // var chulsu = new Student();
+        var chulsu = { name : '김철수', age : 24, 
+                       address : {
+                           sido : '서울시',
+                           gugun : '강남구',
+                           dong : '역삼동'
+                       },
+                       add : function(a,b){
+                           return a + b;
+                       } };
+        console.log(chulsu.add(4,9));
+        console.log(chulsu.name);
+        // console.log(chulsu['age']);
+        // console.log(chulsu.address.sido);
+        // console.log(chulsu.address['gugun']);
+        // console.log(chulsu['address']['dong']);
+
+    </script>
+</body>
+</html>
